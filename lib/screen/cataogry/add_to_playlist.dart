@@ -123,34 +123,7 @@ class _AddToPlaylistState extends State<AddToPlaylist> {
                           ),
                         );
                       },
-                      // child: ListView.separated(
-                      //     itemBuilder: (context, index) {
-                      //       final data = demo[index];
-                      //   return ListTile(
-                      //     leading: const Icon(Icons.playlist_play_rounded),
-                      //     title: Text(data.name),
-                      //     subtitle: Text("Songs: ${data.songid.length}"),
-                      //     trailing: IconButton(
-                      //         onPressed: () {
-                      //           deletplaylistfolder(index);
-                      //         },
-                      //         icon: const Icon(Icons.delete)),
-                      //     onTap: () {
-                      //       Navigator.of(context).push(MaterialPageRoute(
-                      //           builder: ((context) => PlaylistData(
-                      //                 folderindex: index,
-                      //                 playlist: data,
-                      //               ))));
-                      //     },
-                      //   );
-                      // },
-                      // // ignore: avoid_types_as_parameter_names
-                      // separatorBuilder: (context, int) {
-                      //   return const Divider(
-                      //     height: 5,
-                      //   );
-                      // },
-                      // itemCount: demo.length),
+                      
                     ),
                   );
                 },

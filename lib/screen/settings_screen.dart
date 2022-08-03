@@ -3,6 +3,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:musicplayer/database/Db%20model/playlistmodel.dart';
 import 'package:musicplayer/screen/cataogry/song_list.dart';
 import 'package:musicplayer/screen/splash_screenimage.dart';
+import 'package:musicplayer/settings/scan_page.dart';
 import 'package:musicplayer/widgets/cmmn_background_color.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -31,6 +32,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     child: ListView(
                       shrinkWrap: true,
                       children: [
+                         ListTile(
+                          onTap: (() {
+                             Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (ctx) => const ScanScreen()));
+                  
+                              
+                            }),
+                          
+                            leading: settingstext('Scan App'),
+                            trailing: IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (ctx) => const ScanScreen(),
+                              ),
+                            );
+                                   
+                                },  icon: const Icon(Icons.restart_alt_sharp))),
+                        
                         ListTile(
                           onTap: (() {
                             Navigator.of(context).push(
@@ -51,17 +72,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             },
                           ),
                         ),
-                        ListTile(
-                          onTap: (() {
-                           privacyPolicy();
-                          }),
-                          leading: settingstext('Praivacy & Policy'),
-                          trailing: IconButton(
-                              onPressed: () {
-                                 privacyPolicy();
-                              },
-                              icon: const Icon(Icons.privacy_tip_sharp)),
-                        ),
+                        
                         ListTile(
                           onTap: (() {
                              _email();
@@ -104,6 +115,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                    resetapplication();
                                 },  icon: const Icon(Icons.restart_alt_sharp))),
                         
+                        
                       ],
                     ),
                   ),
@@ -124,13 +136,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)
         );
   }
-   Future<void> privacyPolicy() async {
-    // ignore: deprecated_member_use
-    if (await launch('https://docs.google.com/document/d/1-XKotqybmOGsHyJW9kh1AEa_rdM2i_UiUo_2BqlgZNc/edit?usp=sharing')) {
-      throw "Try Again";
-    }
-  }
-
+  
   Future<void> _about() async {
     // ignore: deprecated_member_use
     if (await launch('https://shellhacker.github.io/Personal-Webpage/')) {
@@ -146,7 +152,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _shareapp() async {
-    const applink = 'https://play.google.com/store/apps/details?id=com.stackbae.Tunex';
+    const applink = 'https://play.google.com/store/apps/details?id=com.fouvty.Tunezx';
     await Share.share(applink);
   }
 

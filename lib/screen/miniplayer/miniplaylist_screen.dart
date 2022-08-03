@@ -36,9 +36,8 @@ class _MiniPlayerPageState extends State<MiniPlayerPage> {
         height: 70,
         child: ListTile(
           onTap: () {
-             Songstorage.player.setAudioSource(
-                 Songstorage.createSongList(Songstorage.songCopy),
-                initialIndex: Songstorage.player.currentIndex);
+           
+          
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (ctx) => PlayNowScreen(songModel: Songstorage.playingSongs)));
           },

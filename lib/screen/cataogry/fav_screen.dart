@@ -27,21 +27,7 @@ class _FavListScreenState extends State<FavListScreen> {
     return ConcatenatingAudioSource(children: source);
   }
 
-  // playSong(String? uri) {
-  //   try {
-  //     //song might be currepted so using exception
-  //     audioPlayer.setAudioSource(
-  //       AudioSource.uri(
-  //         Uri.parse(uri!),
-  //       ),
-  //     );
-  //     audioPlayer.play();
-  //   } on Exception {
-  //     log("Error parsing song");
-  //   }
-  // }
-
-//  bool _isfav=false;
+  
   @override
   void initState() {
     super.initState();

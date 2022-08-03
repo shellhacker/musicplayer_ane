@@ -87,7 +87,7 @@ class _SongListScreenState extends State<SongListScreen> {
                       FavoriteDB.initialise(item.data!);
                     }
                     Songstorage.songCopy=item.data!;
-                    Songstorage.playingSongs= item.data!;
+                   // Songstorage.playingSongs= item.data!;
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ListView.separated(

@@ -112,15 +112,6 @@ class _PlaylistAllSongsScreenState extends State<PlaylistAllSongsScreen> {
                                         const Icon(Icons.music_note)),
                               ),
                               onTap: () {
-                                // Songstorage.player.pause();
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //       builder: (context) => PlayNowScreen(
-                                //             songModel: item.data!,
-                                //             // index: index,
-                                //           )),
-                                // );
                               },
                               title: Text(
                                 item.data![index].displayNameWOExt,

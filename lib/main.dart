@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 import 'package:musicplayer/database/Db%20model/playlistmodel.dart';
 import 'package:musicplayer/database/Db_function/playlist_db_folder_function.dart';
 import 'package:musicplayer/screen/splash_screenimage.dart';
@@ -14,6 +15,11 @@ Future<void> main() async {
     await Hive.openBox<int>('favoriteDB');
     await Hive.openBox<PlaylistDbmodel>('PlayListDB');
     getplaylist();
+
+    await JustAudioBackground.init(androidNotificationChannelId: 'com.ryanshies.bg_demo.channel.audio',
+    androidNotificationChannelName: 'Audio playback',
+    androidNotificationOngoing: true,
+    preloadArtwork: true);
 
   runApp(const MyApp());
 }

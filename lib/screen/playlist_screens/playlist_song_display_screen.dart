@@ -19,7 +19,7 @@ class PlaylistData extends StatefulWidget {
 }
 
 class _PlaylistDataState extends State<PlaylistData> {
-    final AudioPlayer audioPlayer = AudioPlayer();
+  final AudioPlayer audioPlayer = AudioPlayer();
   late List<SongModel> playlistsong;
   @override
   Widget build(BuildContext context) {
@@ -50,10 +50,10 @@ class _PlaylistDataState extends State<PlaylistData> {
                 icon: const Icon(Icons.playlist_add))
           ],
         ),
-        body: 
-        // widget.playlist.playlistDB.values.isEmpty? Center(child: Text('Add Songs'),)
-        // :
-         Padding(
+        body:
+            // widget.playlist.playlistDB.values.isEmpty? Center(child: Text('Add Songs'),)
+            // :
+            Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
             child: SafeArea(
@@ -72,53 +72,54 @@ class _PlaylistDataState extends State<PlaylistData> {
                         scrollDirection: Axis.vertical,
                         itemBuilder: (ctx, index) {
                           return ListTile(
-                              leading: QueryArtworkWidget(
-                                id: playlistsong[index].id,
-                                type: ArtworkType.AUDIO,
-                                nullArtworkWidget: const Icon(
-                                  Icons.music_note,
-                                ),
-                                errorBuilder: (context, excepion, gdb) {
-                                  setState(() {});
-                                  return const Text('');
-                                },
+                            leading: QueryArtworkWidget(
+                              id: playlistsong[index].id,
+                              type: ArtworkType.AUDIO,
+                              nullArtworkWidget: const Icon(
+                                Icons.music_note,
                               ),
-                              title: Text(
-                                playlistsong[index].title,
-                                style: const TextStyle(fontSize: 15,color: Colors.white),
-                              ),
-                              subtitle: Text(
-                                playlistsong[index].artist!,
-                                style: const TextStyle(color: Color.fromARGB(255, 253, 252, 252)),
-                              ),
-                              trailing: PopupMenuButton(
+                              errorBuilder: (context, excepion, gdb) {
+                                setState(() {});
+                                return const Text('');
+                              },
+                            ),
+                            title: Text(
+                              playlistsong[index].title,
+                              style: const TextStyle(
+                                  fontSize: 15, color: Colors.white),
+                            ),
+                            subtitle: Text(
+                              playlistsong[index].artist!,
+                              style: const TextStyle(
+                                  color: Color.fromARGB(255, 253, 252, 252)),
+                            ),
+                            trailing: PopupMenuButton(
                                 color: Colors.transparent,
                                 elevation: 0,
-                                  itemBuilder: (context) => [
-                                        PopupMenuItem(
-                                          
-                                          child:  ElevatedButton(
-                                            style: ElevatedButton.styleFrom(primary: Colors.black),
-                                            onPressed: (){
-                                            widget.playlist.deleteData(
-                                                playlistsong[index].id);
-                                        
-
-                                          }, child: const Text('Remove From Playlist')) ,
-                                  
-                                        ),
-                                      ]),
-                                      onTap: (){
-                                       List<SongModel>newlist =[...playlistsong];
-                                       Songstorage.player.stop();
-                                      Songstorage.player.setAudioSource(Songstorage.createSongList(newlist),initialIndex: index);
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(
-                                            builder: (ctx) => PlayNowScreen(
-                                                  songModel:Songstorage.playingSongs)));
-                                        
-                                         },
-                                      );
+                                itemBuilder: (context) => [
+                                      PopupMenuItem(
+                                        child: ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                                primary: Colors.black),
+                                            onPressed: () {
+                                              widget.playlist.deleteData(
+                                                  playlistsong[index].id);
+                                            },
+                                            child: const Text(
+                                                'Remove From Playlist')),
+                                      ),
+                                    ]),
+                            onTap: () {
+                              List<SongModel> newlist = [...playlistsong];
+                              Songstorage.player.stop();
+                              Songstorage.player.setAudioSource(
+                                  Songstorage.createSongList(newlist),
+                                  initialIndex: index);
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) => PlayNowScreen(
+                                      songModel: Songstorage.playingSongs)));
+                            },
+                          );
                         },
                         separatorBuilder: (ctx, index) {
                           return const Divider();

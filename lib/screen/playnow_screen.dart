@@ -353,6 +353,3 @@ class DurationState {
   DurationState({this.position = Duration.zero, this.total = Duration.zero});
   Duration position, total;
 }
-
-//  icon: Icon(
-//                                   _isplaying ? Icons.pause : Icons.play_arrow)
